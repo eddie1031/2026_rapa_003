@@ -15,7 +15,8 @@ public class IbatisPooledCpConnector
     private final PooledDataSource dataSource;
 
     public IbatisPooledCpConnector(
-            String mappersPackage
+            String mappersPackage,
+            String aliasPackage
     ) {
 
         PooledDataSource pooledDataSource = new PooledDataSource();

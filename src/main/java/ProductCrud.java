@@ -1,5 +1,6 @@
 import domain.Product;
 import mapper.s2.ProductMapper;
+import mapper.s2.ProductMapperV2;
 import org.apache.ibatis.session.SqlSession;
 import util.HikariMyBatisConnector;
 import util.MyBatisSessionConnector;
@@ -19,7 +20,7 @@ public class ProductCrud {
 
         try (SqlSession session = connector.openSession(true)) {
 
-            ProductMapper mapper = session.getMapper(ProductMapper.class);
+            ProductMapperV2 mapper = session.getMapper(ProductMapperV2.class);
             Product product = new Product(null, "상품_%d".formatted(genRandomNumber()), genRandomNumber(), 5);
 
             mapper.save(product);
@@ -28,7 +29,7 @@ public class ProductCrud {
 
         try (SqlSession session = connector.openSession()) {
 
-            ProductMapper mapper = session.getMapper(ProductMapper.class);
+            ProductMapperV2 mapper = session.getMapper(ProductMapperV2.class);
 
             List<Product> products = mapper.findAll();
 
@@ -45,7 +46,7 @@ public class ProductCrud {
 
         try (SqlSession session = connector.openSession()) {
 
-            ProductMapper mapper = session.getMapper(ProductMapper.class);
+            ProductMapperV2 mapper = session.getMapper(ProductMapperV2.class);
 
             long targetProductId = 1L;
 
@@ -62,7 +63,7 @@ public class ProductCrud {
 
         try (SqlSession session = connector.openSession(true)) {
 
-            ProductMapper mapper = session.getMapper(ProductMapper.class);
+            ProductMapperV2 mapper = session.getMapper(ProductMapperV2.class);
 
             long targetProductId = 1L;
             int targetStock = 3;
@@ -75,7 +76,7 @@ public class ProductCrud {
 
         try (SqlSession session = connector.openSession()) {
 
-            ProductMapper mapper = session.getMapper(ProductMapper.class);
+            ProductMapperV2 mapper = session.getMapper(ProductMapperV2.class);
 
             long targetProductId = 1L;
 
@@ -93,7 +94,7 @@ public class ProductCrud {
 
         try (SqlSession session = connector.openSession(true)) {
 
-            ProductMapper mapper = session.getMapper(ProductMapper.class);
+            ProductMapperV2 mapper = session.getMapper(ProductMapperV2.class);
 
             long targetProductId = 1L;
 
@@ -104,7 +105,7 @@ public class ProductCrud {
 
         try (SqlSession session = connector.openSession()) {
 
-            ProductMapper mapper = session.getMapper(ProductMapper.class);
+            ProductMapperV2 mapper = session.getMapper(ProductMapperV2.class);
 
             long targetProductId = 1L;
 

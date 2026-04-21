@@ -25,4 +25,18 @@
             member
     </select>
 
+
+    <select id="findById" parameterType="long" resultType="domain.Member">
+        SELECT
+            id,
+            name,
+            email,
+            balance
+        FROM
+            member
+        WHERE
+            id = #{id}
+    </select>
+
+
 </mapper>

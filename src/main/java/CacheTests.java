@@ -105,6 +105,23 @@ public class CacheTests {
             Product product3 = productOptional3.get();
             System.out.println("product1 과 product3의 동일성 검사" + (product1 == product3));
 
+            System.out.println("네 번째 product 조회 시도");
+            Optional<Product> productOptional4 = mapper.findById(targetId);
+            productOptional4.ifPresent(p -> System.out.println("상품이 조회되었습니다!"));
+
+            session.clearCache();
+
+            System.out.println("다섯 번째 product 조회 시도");
+            Optional<Product> productOptional5 = mapper.findById(targetId);
+            productOptional5.ifPresent(p -> System.out.println("상품이 조회되었습니다!"));
+
+            session.commit();
+//            session.rollback();
+
+            System.out.println("여섯 번째 product 조회 시도");
+            Optional<Product> productOptional6 = mapper.findById(targetId);
+            productOptional6.ifPresent(p -> System.out.println("상품이 조회되었습니다!"));
+
 
 
         }
